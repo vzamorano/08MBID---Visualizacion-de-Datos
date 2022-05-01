@@ -1,0 +1,245 @@
+<center><h1 id="title">Estudio del rendimiento en jugadoras de Voleibol </h1></center>
+
+<b>Materia:</b> 08MBID -  Visualización de Datos<br>
+<b>Grupo:</b> A<br>
+<b>Profesor:</b> Raúl Reyero Diez<br>
+<b>Alumna:</b> Vivian Belén Zamorano Castelo<br>
+<b>URL:</b> <a href="https://js-fqe8jp.stackblitz.io">https://js-fqe8jp.stackblitz.io</a><br>
+<b>GitHub:</b> <a href="https://github.com/vzamorano/Trabajo-Practico---Visualizacion-de-Datos">https://github.com/vzamorano/Trabajo-Practico---Visualizacion-de-Datos</a><br>
+
+<center><h2>Introducción </h2></center>
+<p>El uso de sistemas informáticos se ha extendido a la toma de decisiones de muchos deportes, como por ejemplo el Voleibol, de esta manera se pueden obtener datos estadísticos y diferentes resultados de las distintas acciones de juego. Hoy en día, la estadística individual es tan importante, que los jugadores en los altos niveles de competencia se cotizan acorde a sus porcentajes y ellos mismos terminado el encuentro o durante la semana, tienen la necesidad de averiguar sus resultados con el fin de saber en qué aspecto deben mejorar. Además, que estas estadísticas tienen como función poder darle al entrenador una clara visión de cómo se desempeña cada jugador dentro del campo de juego en cada acción que realiza. Cada entrenador puede realizar el seguimiento de datos que le interese, durante o post partido, del equipo propio o del rival, lo cual permite potenciar el rendimiento de los jugadores. El datavolley se utiliza hace muchos años, en torneos locales e internacionales, y es maravilloso ver la cantidad de datos e información que se puede obtener.</p>
+<p>Para poder realizar este estudio, fue necesario buscar un conjunto de datos en internet, que contenga los datos necesarios sobre un campeonato de Voleibol, como ser: rendimiento de juego por jugadora y por equipo, puntos obtenidos, período del campeonato, entre otros. De esta manera, se encontró un conjunto de datos del campeonato de voleibol femenino de la NCAA (National Collegiate Athletic Association), el cuál es uno de los deportes femeninos más importantes de los Estados Unidos. El conjunto de datos final (después del proceso KDD realizado en la materia de Míneria de Datos) se encuentra en formato .CSV, en el cual se disponen de 24 columnas (atributos/características) y de 780341 filas (instancias), cada una de las instancias corresponde a los datos de cada jugadora por equipo, comprendidos entre los años 2012 y 2019.</p>
+<p>Como el conjunto de datos tiene un gran volumen, se decidió realizar el estudio solo con los datos de un equipo del campeonato: California, además de usar los datos de solo 6 jugadoras. A continuación, una tabla con la información de las jugadoras:</p>
+<center><iframe title="Tabla de Jugadoras del equipo de California" aria-label="Table" id="datawrapper-chart-iV5t5" src="https://datawrapper.dwcdn.net/iV5t5/1/" scrolling="no" frameborder="0" style="border: none;" width="600" height="311"></iframe></center>
+
+<center><h2>Motivación</h2></center>
+<p>Mi motivación para la elección del tema de estudio es personal, porque soy jugadora de Voleibol desde mis 9 años y he participado en distintos campeonatos, y hasta el momento no tuve la oportunidad de contar con una herramienta que me brinde información sobre mi rendimiento de juego en cada partido o de como jugaría mi equipo rival según los resultados del análisis de datos de sus anteriores partidos, por ese motivo me interesa profundizar este estudio y así, más adelante con el conocimiento obtenido, tener la oportunidad de implementarlo en el equipo actual en el que juego.</p>
+
+<center><h2>Objetivos</h2></center>
+<p>El objetivo principal es realizar un estudio de rendimiento por jugadora del equipo de California durante el campeonato de voleibol femenino de la NCAA, basado en las principales habilidades de juego, para que con los resultados obtenidos los entrenadores y las jugadoras tengan información valiosa al respecto, por lo cual este análisis pretende responder a las siguientes preguntas: </p>
+<ul>
+<li>¿Cuál ha sido la jugadora con mayor rendimiento del equipo de California durante sus dos últimos años de participación?</li>
+<li>¿El rendimiento de una jugadora mejora con el tiempo respecto con la cantidad de años jugados?</li>
+<li>¿En qué habilidades específicas debe mejorar una jugadora?</li>
+</ul>
+
+<center><h2>Análisis/Metodología</h2></center>
+<p><b>Audiencia:</b> Este análisis va dirigido principalmente a los entrenadores y a las jugadoras del equipo de California. Pero, puede ser interpretado por otros equipos que hayan sido parte del campeonato durante los años 2012 a 2019, ya que este análisis puede ser implementado para cualquier equipo o jugadora.</p>
+<p>Para realizar este análisis se tomará en cuenta las habilidades de juego más relevantes en el Voleibol de 6 jugadoras, las cuales se detallan a continuación: </p>
+<ul>
+<li><b>hittingPercentage:</b> Es el porcentaje de acierto en el ataque, obtenido de la siguiente fórmula: (kills – attackErrors)/attackAttempts</li>
+<li><b>digs:</b> Número de balones defendidos frente al intento de ataque del oponente.</li>
+<li><b>blockSolos:</b> Número de balones desviados por un punto sin que otros jugadores a su alrededor bloqueen.</li>
+<li><b>serviceAces:</b> Número de saques que resultaron en un punto directo.</li>
+</ul>
+<p>Para poder visualizar las habilidades ya mencionadas anteriormente, se realizó el siguiente gráfico de radar interactivo: </p>
+<center><iframe title="TP - Gráfico de Radar" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=15a15711-aa30-41d7-bfe0-f9962ac60cc8&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+<p>Seguidamente, podemos afirmar lo siguiente:</p>
+<ul>
+<li><b>Alyssa Jensen (representado con el color celeste):</b>  Se puede observar que esta jugadora tuvó una mejor productividad en las habilidades de hittingPercentage con un total de 57.02, serviceAces con un total de 37 y digs con un total de 618, por otro lado para blockSolos solo obtuvó un total de 7.</li>
+<li><b>Belen Castillo (representado con el color rosado oscuro):</b>  Se puede observar que esta jugadora tuvó una mejor productividad en las habilidades de digs con un total de 44 y blockSolos con un total de 37,  por otro lado, tuvó una menor productividad en hittingPercentage con un total de 27.64 y serviceAces con un total de 4.</li>
+<li><b>Emma Smith (representado con el color azul):</b>  Se puede observar que esta jugadora tuvó una mejor productividad en las habilidades de digs con un total de 753 y hittingPercentage con un total de 38.67,  por otro lado, tuvó una menor productividad en serviceAces con un total de 27.64 y además no realizó ningún bloqueo (blockSolos).</li>
+<li><b>Lauren Forte (representado con el color rosado claro):</b>  Se puede observar que esta jugadora tuvó una mejor productividad en las habilidades de digs con un total de 44, blockSolos con un total de 35,  y hittingPercentage con un total de 32.29, por otro lado, no hizo puntos directos en el saque (serviceAces).</li>
+<li><b>Nikki Gombar (representado con el color naranja):</b>  Se puede observar que esta jugadora se destacó en la habilidad de digs con un total de 421, por otro lado, para hittingPercentage obtuvó un total de 33.70 y para serviceAces un total de 26, además que para blockSolos solo obtuvó un total de 2 bloqueos..</li>
+<li><b>Sabrina Blackwell (representado con el color lila):</b>  Se puede observar que esta jugadora también se destacó en la habilidad de digs con un total de 286, por otro lado, para hittingPercentage obtuvó un total de 27.67 y para serviceAces un total de 19, y además no realizó ningún bloqueo (blockSolos).</li>
+</ul>
+<p>Después de haber realizado un estudio grupal, se procederá a realizar un análisis más detallado por cada jugadora, ya que esto será de gran ayuda para ver en que habilidad en especifíco debe mejorar cada una.</p>
+<h3>Jugadora: Alyssa Jensen</h3>
+<center><iframe title="TP - Alyssa Jensen" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=2fa5515f-477e-4c6b-837c-499ea16b11f3&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Alyssa, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2013 y 2016), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2013:</b> Se puede observar que no existe relación entre los puntos realizados con el número de saques, esto nos indica que el total de puntos (1.50) se obtuvieron con otro tipo de jugadas. </li>
+<li><b>Año 2014:</b> Durante este período, se hicieron 48.50 puntos, de los cuáles 9 fueron hechos con saques directos.</li>
+<li><b>Año 2015:</b> Para el año 2015, la jugadora anotó 54 puntos en total, de los cuáles 13 fueron hechos con saques directos.</li>
+<li><b>Año 2016:</b> Finalmente, para el año 2016 se anotó una cantidad total  de 77 puntos, de los cuáles 15 fueron obtenidos con saques directos.</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b></li>
+<ul>
+<li><b>Año 2013:</b> Se puede observar que el porcentaje de aciertos en el ataque (5%) es mayor a la cantidad de puntos realizados por la jugadora, lo que indica que un acierto en el ataque no siempre termina en un punto. </li>
+<li><b>Año 2014:</b> Durante este período, se hicieron 48.50 puntos, de los cuáles en un porcentaje del 17.61% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2015:</b> Para el año 2015, la jugadora anotó 54 puntos en total, de los cuáles en un porcentaje del 18.48% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2016:</b> Finalmente, para el año 2016 se anotó una cantidad total  de 77 puntos, de los cuáles en un porcentaje del 15.94% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year": </b></li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento desde el año 2013 de un total de 5% hasta llegar al 15.94% en el año 2016.  </li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, se puede observar claramente que la cantidad de balones defendidos ascendió, desde 2 para el año 2013 hasta 187 para el año 2014, después de esto, tambíen hubo una mejora pero no fue tan notoria, llegando a un total de 219 en el año 2016.</li>
+<li><b>blockSolos:</b> Para esta habilidad, se puede observar que es la más débil de la jugadora, ya que en el año 2013 no obtuvó ningún bloqueo, y con el pasar del tiempo solo obtuvó de 2 a 3 bloqueos entre los años 2014 al 2016.</li>
+<li><b>serviceAces:</b> Respecto al número de saques que resultaron en punto directo, se puede observar que esta cantidad fue ascendiendo desde 9 durante el año 2014 hasta 15 para el año 2016.</li>
+</ul>
+</ul>
+
+<h3>Jugadora: Belen Castillo</h3>
+<center><iframe title="TP - Belen Castillo" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=0bd1b37d-83a4-434c-9e58-94c10fba7e2c&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Belen, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2015 y 2016), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2015:</b> Para el año 2015, la jugadora anotó 122.50 puntos en total, de los cuáles solo 1 fue obtenido con saque directo.</li>
+<li><b>Año 2016:</b> Se puede observar que, para el año 2016 se anotó una cantidad total de 201 puntos, de los cuáles 3 fueron obtenidos con saques directos.</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b></li>
+<ul>
+<li><b>Año 2015:</b> Para el año 2015, la jugadora anotó 122.50 puntos en total, de los cuáles en un porcentaje del 10.38% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2016:</b> Se puede observar que, para el año 2016 se anotó una cantidad total de 201 puntos, de los cuáles en un porcentaje del 17.25% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year":</b></li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento desde el año 2015 de un total de 10.38% hasta llegar al 17.25% en el año 2016.  </li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, se puede observar que la cantidad de balones defendidos ascendió, desde 20 para el año 2015 hasta 24 para el año 2016.</li>
+<li><b>blockSolos:</b> Para esta habilidad, se puede observar que hubo un incrementó de 2 bloqueos en el año 2015 hasta 13 en el año 2016.</li>
+<li><b>serviceAces:</b> Respecto al número de saques que resultaron en punto directo, se puede observar que al parecer es la habilidad más débil de la jugadora, ya que solo obtuvó un total de 1 saque en el año 2015 y 3 en el año 2016.</li>
+</ul>
+</ul>
+
+<h3>Jugadora: Emma Smith</h3>
+<center><iframe title="TP - Emma Smith" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7271bd59-9dcd-41cf-bc1d-02b790968cb9&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Emma, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2017 y 2019), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2017:</b> Se puede observar que, la jugadora solo anotó 3 puntos en total, de los cuáles los 3 fueron obtenidos con saque directo.</li>
+<li><b>Año 2018:</b> Para el año 2018, la jugadora anotó 6 puntos en total, de los cuáles 3 fueron obtenidos con saque directo.</li>
+<li><b>Año 2019:</b> Se puede observar que, para el año 2019 se anotó una cantidad total de 8 puntos, de los cuáles los 8 fueron obtenidos con saques directos.</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b> </li>
+<ul>
+<li><b>Año 2017:</b> Para el año 2017, la jugadora anotó 3 puntos en total, de los cuáles en un porcentaje del 9% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2018:</b> Se puede observar que, la jugadora anotó 6 puntos en total, de los cuáles en un porcentaje del 15.50% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2019:</b> Se puede observar que, para el año 2019 se anotó una cantidad total de 8 puntos, de los cuáles en un porcentaje del 14.17% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year":</b> </li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento de 9% en el año 2017 hasta el 15.50% en el año 2018, pero para el año 2019 este porcentaje descendió al 14.17%.</li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, se puede observar que la cantidad de balones defendidos ascendió, desde 161 para el año 2017 hasta 369 para el año 2019.</li>
+<li><b>blockSolos:</b> Se puede observar que al parecer esta es la habilidad más débil de la jugadora, ya que durante los años 2017 al 2019 no obtuvó ningún bloqueo que haya resultado efectivo.</li>
+<li><b>serviceAces:</b> Respecto al número de saques que resultaron en punto directo, se observa que durante los años 2017 y 2018 la cantidad se mantuvo en 3, y ya para el año 2019 ascendió a 8.</li>
+</ul>
+</ul>
+
+<h3>Jugadora: Lauren Forte</h3>
+<center><iframe title="TP - Lauren Forte" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=bda2deca-b7a0-4e39-a311-08998e458f87&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Lauren, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2018 y 2019), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2018:</b> Se puede observar que no existe relación entre los puntos realizados con el número de saques, esto nos indica que el total de puntos (215) se obtuvieron con otro tipo de jugadas.</li>
+<li><b>Año 2019:</b> Se puede observar que, para el año 2019 no existe relación entre los puntos realizados con el número de saques, esto nos indica que el total de puntos (251) se obtuvieron con otro tipo de jugadas</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b> </li>
+<ul>
+<li><b>Año 2018:</b> Se puede observar que, la jugadora anotó 251 puntos en total, de los cuáles en un porcentaje del 15.44% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2019:</b> Se puede observar que, para el año 2019 se anotó una cantidad total de 251 puntos, de los cuáles en un porcentaje del 16.86% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year":</b> </li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento de 15.44% en el año 2018 hasta el 16.86% en el año 2019.</li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, se puede observar que la cantidad de balones defendidos ascendió, desde 17 para el año 2018 hasta 27 para el año 2019.</li>
+<li><b>blockSolos:</b> Se puede observar que la cantidad de bloqueos descendió de 25 en el año 2018 a 10 en el año 2019.</li>
+<li><b>serviceAces:</b> Se puede observar que al parecer esta es la habilidad más débil de la jugadora, ya que durante los años 2018 y 2019 no obtuvó ningún saque que haya resultado en un punto directo.</li>
+</ul>
+</ul>
+
+<h3>Jugadora: Nikki Gombar</h3>
+<center><iframe title="TP - Nikki Gombar" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=e20227e7-3a28-4c42-b938-048f9c13e450&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Nikki, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2012 y 2015), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2012:</b> Para el año 2012, la jugadora anotó 53.50 puntos en total, de los cuáles 15 fueron obtenidos con saque directo. </li>
+<li><b>Año 2013:</b> Se puede observar que para el año 2013 no existen datos registrados, esto podría deberse a alguna lesión en la jugadora o a factores externos.</li>
+<li><b>Año 2014:</b> Para el año 2016, la jugadora anotó 78 puntos en total, de los cuáles 7 fueron hechos con saques directos.</li>
+<li><b>Año 2015:</b> Finalmente, para el año 2015 se anotó una cantidad total de 72 puntos, de los cuáles 4 fueron obtenidos con saques directos.</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b> </li>
+<ul>
+<li><b>Año 2012:</b> Se puede observar que, la jugadora anotó 53.50 puntos en total, de los cuáles en un porcentaje del 10.49% del acierto de ataque terminó en punto. </li>
+<li><b>Año 2013:</b> Se puede observar que para el año 2013 no existen datos registrados, esto podría deberse a alguna lesión en la jugadora o a factores externos.</li>
+<li><b>Año 2014:</b> Para el año 2014, la jugadora anotó 78 puntos en total, de los cuáles en un porcentaje del 12.82% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2015:</b> Finalmente, para el año 2015 se anotó una cantidad total de 72 puntos, de los cuáles en un porcentaje del 10.39% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year":</b> </li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento de 10.49% en el año 2012 hasta el 12.82% en el año 2014, pero para el año 2015 este porcentaje descendió al 10.39%.</li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, se puede observar que hubo un descenso de 172 balones defendidos en el año 2012 a 84 en el año 2015.</li>
+<li><b>blockSolos:</b> Para esta habilidad, se puede observar que es la más débil de la jugadora, ya que en el año 2012 no obtuvó ningún bloqueo, y con el pasar del tiempo solo obtuvó de 2 bloqueos en el año 2014 y para el 2015 volvió a descender a 0.</li>
+<li><b>serviceAces:</b> Respecto al número de saques que resultaron en punto directo, se puede observar que hubo un descenso de 15 saques en el año 2012 a 4 en el año 2015.</li>
+</ul>
+</ul>
+
+<h3>Jugadora: Sabrina Blackwell</h3>
+<center><iframe title="TP - Sabrina Blackwell" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=bf57be5e-c72f-4fd1-b41e-31a32c2f5f27&autoAuth=true&ctid=02674ef9-5c2c-47d0-b2bc-595a784dda00&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXdlc3QtZXVyb3BlLWItcHJpbWFyeS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe></center>
+
+<p>En el dashboard interactivo para la jugadora Sabrina, se puede observar que existen 3 gráficos (cabe recalcar que solamente se tienen datos de los años que participó en el campeonato, comprendidos entre el 2014 y 2016), los cuáles se explicarán a continuación:</p>
+<ul>
+<li><b>Gráfico "Relationship of points and serviceAces by Year":</b></li>
+<ul>
+<li><b>Año 2014:</b> Se puede observar que, la jugadora no tiene registro de puntos para este año.</li>
+<li><b>Año 2015:</b> Para el año 2015, la jugadora anotó 14 puntos en total, de los cuáles 13 fueron obtenidos con saque directo.</li>
+<li><b>Año 2016:</b> Se puede observar que, para el año 2016 se anotó una cantidad total de 7 puntos, de los cuáles los 6 fueron obtenidos con saques directos.</li>
+</ul>
+<li><b>Gráfico "Relationship of points and hittingPercentage by Year":</b></li>
+<ul>
+<li><b>Año 2014:</b> Se puede observar que el porcentaje de aciertos en el ataque (2%) es mayor a la cantidad de puntos realizados por la jugadora, ya que no tiene registro de puntos realizados, lo que indica que un acierto en el ataque no siempre termina en un punto.</li>
+<li><b>Año 2015:</b> Se puede observar que, la jugadora anotó 14 puntos en total, de los cuáles en un porcentaje del 12.42% del acierto de ataque terminó en punto.</li>
+<li><b>Año 2016:</b> Se puede observar que, para el año 2016 se anotó una cantidad total de 7 puntos, de los cuáles en un porcentaje del 13.25% del acierto de ataque terminó en punto.</li>
+</ul>
+<li><b>Gráfico "hittingPercentage, digs, blockSolos and serviceAces by Year":</b> </li>
+<ul>
+<li><b>hittingPercentage:</b> Se puede observar que para el porcentaje de acierto en el ataque hubo un incremento de 2% en el año 2014 hasta el 13.25% en el año 2016.</li>
+<li><b>digs:</b> En cuánto a la habilidad de defensa, Se puede observar que hubo un incremento de 1 en el año 2014 hasta 179 en el año 2015, pero para el año 2016 este cantidad descendió a 106.</li>
+<li><b>blockSolos:</b> Se puede observar que al parecer esta es la habilidad más débil de la jugadora, ya que durante los años 2014 al 2016 no obtuvó ningún bloqueo que haya resultado efectivo.</li>
+<li><b>serviceAces:</b> Respecto al número de saques que resultaron en punto directo, se observa que durante el año 2014 no hubo saques efectivos, y ya para el año 2015 esto ascendió a 13, pero en el 2016 descendió a 6.</li>
+</ul>
+</ul>
+
+<center><h2>Conclusiones</h2></center>
+<p>Después de haber realizado todo el estudio del rendimiento de las jugadoras, se llegaron a las siguientes conclusiones: </p>
+<ul>
+<li>Tras haber obtenido los resultados de cada jugadora, se procedió a realizar una comparación de los puntos realizados y las habilidades principales (hittingPercentage, digs, blockSolos y serviceAces) durante los dos ultimos años de participación en el campeonato, además, cabe recordar que no todas las jugadoras participaron durante los años 2012 a 2019, así de esta manera, se llegó a la conclusión de que la jugadora con mayor rendimiento es Belen Castillo, porque es la que mantuvo un mayor equilibrio de juego en las 4 habilidades analizadas.</li>
+<li>En cuánto a la mejora del rendimiento durante el tiempo y a que habilidades específicas debe mejorar una jugadora, se procederá a realizar una conclusión por cada una:</li>
+<ul>
+<li><b>Alyssa Jensen:</b> Esta jugadora tuvo una mejora en las habilidades de hittingPercentage, digs y servicesAces durante los años que jugó (2013 al 2016) ya que en las 3 fue ascendiendo la cantidad total de cada una, además, que la cantidad de puntos anotados también fue incrementando. Por otro lado, su rendimiento no fue muy bueno en la habilidad de blockSolos, así que esta habilidad es la que debe mejorar.</li>
+<li><b>Belen Castillo:</b> El rendimiento de esta jugadora mejoró en las habilidades de hittingPercentage, digs y blockSolos durante los años que jugó (2015 al 2016) ya que en las 3 fue ascendiendo la cantidad total de cada una, además, que la cantidad de puntos anotados también fue incrementando. Por otro lado, su rendimiento no fue muy bueno en los saques que resultaron en un punto directo, así que esta habilidad es la que debe mejorar.</li>
+<li><b>Emma Smith:</b> En cuánto a esta jugadora, se pudo ver una mejora en las habilidades de digs y serviceAces durante los años que jugó (2017 al 2019), y también la cantidad de puntos anotados fue incrementando. Por otro lado, no tuvo un buen rendimiento en hittingPercentage y blockSolos, así que debe trabajar en estas dos habilidades.</li>
+<li><b>Lauren Forte:</b> Esta jugadora tuvo una mejora en las habilidades de hittingPercentage y digs durante los años que jugó (2018 al 2019) ya que en ambas fue ascendiendo la cantidad total de cada una, además, que la cantidad de puntos anotados también fue incrementando. Por otro lado, su rendimiento no fue muy bueno en la habilidad de blockSolos y serviceAces, así que debe mejorar en estas 2 habilidades.</li>
+<li><b>Nikki Gombar:</b> La mejora en el juego de esta jugadora solo puede ver en el incremento de la cantidad de puntos anotados, ya que en las 4 habilidades analizadas (hittingPercentage, digs, blockSolos y serviceAces) se puede ver que no hubo una constancia de mejora en el juego porque la cantidad de estás fue ascendiendo y descendiendo durante los años que jugó Nikki (2012 al 2015). Esto pudo haber sido causado por distintos aspectos, como ser lesiones, estados de ánimo, problemas personales, entre otros.</li>
+<li><b>Sabrina Blackwell:</b> El rendimiento de esta jugadora mejoró en las habilidades de hittingPercentage, digs y serviceAces durante los años que jugó (2014 al 2016) ya que en las 3 fue ascendiendo la cantidad total de cada una. Por otro lado, la cantidad de puntos anotados fue descendiendo y su rendimiento no fue muy bueno en la habilidad de blockSolos, así que esta habilidad es la que debe mejorar.</li>
+</ul>
+</ul>
+
+<h3>Herramientas empleadas</h3>
+<p>Para el análisis realizado, se usaron las siguientes herramientas: </p>
+<ul>
+<li><b>Google SpreadSheet:</b> Es una aplicación de hojas de cálculo que se incluye como parte del conjunto gratuito de Google Docs Editors basado en la web que ofrece Google. Esta herramienta fue utilizada por la facilidad de manejo con una gran cantidad de datos y por la conexión que tiene con Data Wrapper.</li>
+<li><b>Data Wrapper:</b> Es una herramienta de visualización en línea, la cual decidí usarla porque tiene muchas opciones de gráficos, es muy intuitiva y fácil de usar.</li>
+<li><b>Power BI:</b> Es un servicio de análisis de datos de Microsoft orientado a proporcionar visualizaciones interactivas. Con esta herramienta fue con la que hice la mayor cantidad de gráficos porque tiene muchas opciones para crear visualizaciones interactivas, además de dashboards útiles para todo tipo de audiencia.</li>
+</ul>
+
+<h3>Gráficos empleados</h3>
+<p>Para el análisis realizado, se usaron los siguientes tipos de gráficas: </p>
+<ul>
+<li><b>Tablas:</b> Las tablas facilitan la comparación de pares de valores relacionados o la visualización de información, por este motivo se realizó una tabla de las jugadoras que fueron parte del estudio.</li>
+<li><b>Gráfico de radar:</b> Es un gráfico que ayuda a captar las diferentes percepciones de todos los miembros del equipo con respecto al desempeño del equipo o de la organización, por este motivo se escogío este gráfico.</li>
+<li><b>Gráfico de barras y líneas:</b> Se escogió utilizar este tipo de gráficos porque representan cambios a lo largo del tiempo, y fueron ideales para el análisis realizado.</li>
+</ul>
+
+<h3>Datos consultados</h3>
+<p>El conjunto de datos original con el que se trabajó en la materia de Míneria de Datos se encuentra en el siguiente link: <a href="https://www.kaggle.com/datasets/tylerwiddison/ncaa-womens-volleyball-boxscores-20122019?select=ncaa_w_boxscores_2012-2019.csv">https://www.kaggle.com/datasets/tylerwiddison/ncaa-womens-volleyball-boxscores-20122019?select=ncaa_w_boxscores_2012-2019.csv</a>, como se mencionó anteriormente se implementó un proceso KDD a estos datos y del conjunto de datos final se extrajó una parte de la información para poder realizar el estudio en la materia de Visualización de Datos, dicho conjunto de datos se encuentra en la siguiente hoja de cálculo: <a href="https://docs.google.com/spreadsheets/d/1PviYtrw_a4Pnf3n8qkikQ-UZxHAfTJcgWbEerDoJnnI/edit#gid=1296144913">https://docs.google.com/spreadsheets/d/1PviYtrw_a4Pnf3n8qkikQ-UZxHAfTJcgWbEerDoJnnI/edit#gid=1296144913</a></p>
+
+<center><h2>Referencias</h2></center>
+<ul>
+<li>Crear gráfico de radar mediante el uso de 2 columnas de tabla. (2020, 25 agosto). Crear Gráfico de Radar Mediante El Uso de 2 Columnas de Tabla. <a href="https://community.powerbi.com/t5/Translated-Spanish-Desktop/Crear-gr%C3%A1fico-de-radar-mediante-el-uso-de-2-columnas-de-tabla/td-p/1300940">https://community.powerbi.com/t5/Translated-Spanish-Desktop/Crear-gr%C3%A1fico-de-radar-mediante-el-uso-de-2-columnas-de-tabla/td-p/1300940</a></li>
+<li>Infogram. (2022). Cómo elegir el gráfico correcto para tus datos. <a href="https://infogram.com/es/pagina/elige-el-grafico-correcto-visualizacion-datos#:%7E:text=C%C3%B3mo%20seleccionar%20el%20tipo%20de,muestran%20partes%20de%20un%20todo.">https://infogram.com/es/pagina/elige-el-grafico-correcto-visualizacion-datos#:%7E:text=C%C3%B3mo%20seleccionar%20el%20tipo%20de,muestran%20partes%20de%20un%20todo.</a></li>
+<li>M. (2022, 17 abril). Tipos de visualización en Power BI - Power BI. Microsoft Docs. <a href="https://docs.microsoft.com/es-es/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a">https://docs.microsoft.com/es-es/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a</a></li>
+<li>Meije, A. B. (2022, 24 enero). Cómo hacer un Dashboard con Power BI. USCMARKETINGDIGITAL. <a href="https://www.uscmarketingdigital.com/como-hacer-un-dashboard-con-power-bi/">https://www.uscmarketingdigital.com/como-hacer-un-dashboard-con-power-bi/</a></li>
+<li>NCAA Womens Volleyball boxscores 2012–2019. (2020, 22 mayo). Kaggle. <a href="https://www.kaggle.com/datasets/tylerwiddison/ncaa-womens-volleyball-boxscores-20122019?select=ncaa_w_boxscores_2012-2019.csv">https://www.kaggle.com/datasets/tylerwiddison/ncaa-womens-volleyball-boxscores-20122019?select=ncaa_w_boxscores_2012-2019.csv</a></li>
+</ul>
